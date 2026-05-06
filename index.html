@@ -94,10 +94,38 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .nav__hamburger span{ width:22px; height:2px; background:var(--fg-1); border-radius:2px; transition:all var(--dur-base) var(--ease-out); }
 
 /* ===== HERO ===== */
+.hero-wrapper{
+  position:relative; overflow:hidden;
+  background:var(--nauta-ink);
+}
+.hero-wrapper__bg{
+  position:absolute; inset:0;
+  background-image:url('assets/hero-familia.jpg');
+  background-size:cover; background-position:center 30%;
+  opacity:0.22;
+  filter:grayscale(30%);
+}
+.hero-wrapper__gradient{
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(38,38,38,0.85) 0%,
+    rgba(38,38,38,0.55) 50%,
+    rgba(38,38,38,0.2) 100%
+  );
+}
 .hero{
   max-width:1280px; margin:0 auto;
-  padding:80px 32px 96px;
+  padding:100px 32px 112px;
+  position:relative; z-index:2;
 }
+.hero__rule{ border-bottom-color:rgba(235,235,223,0.3); color:var(--nauta-bone); }
+.hero__rule-sep{ color:rgba(235,235,223,0.3); }
+.hero__headline{ color:var(--nauta-bone); }
+.hero__headline em{ color:var(--nauta-orange); }
+.hero__lede{ color:rgba(235,235,223,0.7); }
+.link-quiet{ color:var(--nauta-bone); }
+.link-quiet:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
 .hero__rule{
   display:flex; gap:14px; align-items:center;
   padding-bottom:22px; border-bottom:1px solid var(--nauta-ink);
@@ -689,6 +717,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 }
 @media(max-width:600px){
   .hero__headline{ font-size:clamp(48px,13vw,64px); }
+  .hero-wrapper__gradient{ background:linear-gradient(to bottom, rgba(38,38,38,0.9) 0%, rgba(38,38,38,0.6) 100%); }
   .stats__inner{ grid-template-columns:1fr 1fr; }
   .oferta__grid{ grid-template-columns:1fr; }
   .plataforma__right{ grid-template-columns:1fr; }
@@ -726,7 +755,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <!-- MOBILE NAV -->
 <nav class="nav__mobile" id="mobileNav">
   <div class="nav__mobile-header">
-    <img src="assets/logo-fullwhite.png" alt="Nauta Investimentos"/>
+    <img src="assets/logo-offwhite.png" alt="Nauta Investimentos"/>
     <button class="nav__mobile-close" onclick="closeMobileNav()">✕</button>
   </div>
   <div class="nav__mobile-links">
@@ -745,7 +774,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <header class="nav" id="mainNav">
   <div class="nav__inner">
     <a href="#" class="nav__brand">
-      <img src="assets/logo-fullblack.png" alt="Nauta Investimentos" style="height: 60px;"/>
+      <img src="assets/logo-black.png" alt="Nauta Investimentos"/>
     </a>
     <nav class="nav__links">
       <a href="#nauta">Quem somos</a>
@@ -763,7 +792,10 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero-wrapper">
+  <div class="hero-wrapper__bg"></div>
+  <div class="hero-wrapper__gradient"></div>
+  <section class="hero">
   <div class="hero__rule animate-in">
     <span>01</span>
     <span class="hero__rule-sep">—</span>
@@ -772,11 +804,12 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
     <span>Campos & Macaé, RJ</span>
   </div>
   <h1 class="hero__headline animate-in" data-delay="1">
-    Cuidamos<br/>de <em>histórias.</em>
+    Patrimônio<br/>com <em>rota.</em>
   </h1>
   <div class="hero__lower">
     <p class="hero__lede animate-in" data-delay="2">
-      Sua história começa muito antes dos investimentos. Por isso tratamos seu patrimônio com o cuidado que ele merece.
+      Conduzimos famílias, fundadores e empresas através de ciclos de mercado com
+      ética, transparência e visão de longo prazo. Somos o parceiro que cresce junto com você.
     </p>
     <div class="hero__actions animate-in" data-delay="3">
       <a class="btn-primary" href="#contato">Agendar conversa →</a>
@@ -784,6 +817,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
     </div>
   </div>
 </section>
+</div>
 
 <!-- NAUTA — O SIGNIFICADO -->
 <section class="nauta-word" id="nauta">
@@ -831,17 +865,19 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
       </div>
     </div>
   </div>
+  <div class="nauta-word__bg-text">Nauta</div>
 </section>
 
 <!-- QUEM SOMOS (STATS) -->
 <section class="stats">
   <div class="stats__inner">
     <div class="stat reveal">
-      <div class="stat__val tabular orange">+R$ 1,3 bi</div>
+      <div class="stat__val tabular orange">+R$ 1,1 bi</div>
       <div class="stat__label">Ativos sob assessoria</div>
-      </div>
+      <div class="stat__sub">Crescimento de +12% nos últimos 12 meses</div>
+    </div>
     <div class="stat reveal" data-delay="1">
-      <div class="stat__val tabular orange">+3.000</div>
+      <div class="stat__val tabular orange">+2.700</div>
       <div class="stat__label">Clientes ativos</div>
       <div class="stat__sub">Em todo o Brasil e no exterior</div>
     </div>
@@ -1093,7 +1129,8 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
       <a class="btn-ghost" href="#servicos">Conhecer as soluções</a>
     </div>
   </div>
- </section>
+  <div class="crescer__bg">NAUTA</div>
+</section>
 
 <!-- OFERTA DE VALOR -->
 <section class="oferta">
@@ -1218,7 +1255,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="assets/logo-orange-white.png" alt="Nauta Investimentos" style="height: 42px;"/>
+      <img src="assets/logo-orange.png" alt="Nauta Investimentos"/>
       <p>Assessoria de investimentos<br/>e soluções patrimoniais.<br/><br/>
         Campos dos Goytacazes · Macaé, RJ</p>
     </div>
