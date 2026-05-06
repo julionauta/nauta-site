@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
 <style>
-/* ===== DESIGN TOKENS ===== */
 :root {
   --nauta-orange:     #FF5100;
   --nauta-orange-700: #D94400;
@@ -41,657 +40,228 @@
   --dur-slow: 420ms;
   --shadow-2: 0 2px 4px rgba(38,38,38,.06), 0 8px 24px rgba(38,38,38,.08);
 }
-
-/* ===== RESET ===== */
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; font-size:16px; }
-body{ font-family:var(--font-sans); background:var(--bg); color:var(--fg-1);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
+body{ font-family:var(--font-sans); background:var(--bg); color:var(--fg-1); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
 a{ text-decoration:none; color:inherit; }
 img{ display:block; max-width:100%; }
 button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 ::selection{ background:var(--nauta-orange); color:#fff; }
-
-/* ===== UTILITIES ===== */
-.eyebrow{
-  font-size:12px; font-weight:500; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--fg-3);
-}
+.eyebrow{ font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--fg-3); }
 .orange{ color:var(--nauta-orange); }
 .tabular{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
 
-/* ===== NAV ===== */
-.nav{
-  position:sticky; top:0; z-index:100;
-  background:rgba(235,235,223,0.88);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border-1);
-  transition:background var(--dur-base) var(--ease-out);
-}
-.nav__inner{
-  max-width:1280px; margin:0 auto; padding:0 32px;
-  height:68px; display:flex; align-items:center; justify-content:space-between; gap:32px;
-}
+/* NAV */
+.nav{ position:sticky; top:0; z-index:100; background:rgba(235,235,223,0.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--border-1); transition:background var(--dur-base) var(--ease-out); }
+.nav__inner{ max-width:1280px; margin:0 auto; padding:0 32px; height:68px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
 .nav__brand img{ height:28px; }
-.nav__links{
-  display:flex; gap:28px; align-items:center; flex:1; margin-left:32px;
-}
-.nav__links a{
-  font-size:14px; color:var(--fg-1);
-  border-bottom:1px solid transparent; padding-bottom:2px;
-  transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
-}
+.nav__links{ display:flex; gap:28px; align-items:center; flex:1; margin-left:32px; }
+.nav__links a{ font-size:14px; color:var(--fg-1); border-bottom:1px solid transparent; padding-bottom:2px; transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
 .nav__links a:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
-.nav__cta{
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--nauta-orange); color:#fff;
-  font-size:14px; font-weight:500; padding:10px 20px;
-  border-radius:8px;
-  transition:background var(--dur-fast) var(--ease-out);
-}
+.nav__cta{ display:inline-flex; align-items:center; gap:8px; background:var(--nauta-orange); color:#fff; font-size:14px; font-weight:500; padding:10px 20px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); }
 .nav__cta:hover{ background:var(--nauta-orange-700); }
 .nav__hamburger{ display:none; flex-direction:column; gap:5px; padding:4px; }
 .nav__hamburger span{ width:22px; height:2px; background:var(--fg-1); border-radius:2px; transition:all var(--dur-base) var(--ease-out); }
 
-/* ===== HERO ===== */
-.hero-wrapper{
-  position:relative; overflow:hidden;
-  background:var(--nauta-ink);
-}
-.hero-wrapper__bg{
-  position:absolute; inset:0;
-  background-image:url('assets/hero-familia.jpg');
-  background-size:cover; background-position:center 30%;
-  opacity:0.22;
-  filter:grayscale(30%);
-}
-.hero-wrapper__gradient{
-  position:absolute; inset:0;
-  background:linear-gradient(
-    to right,
-    rgba(38,38,38,0.85) 0%,
-    rgba(38,38,38,0.55) 50%,
-    rgba(38,38,38,0.2) 100%
-  );
-}
-.hero{
-  max-width:1280px; margin:0 auto;
-  padding:100px 32px 112px;
-  position:relative; z-index:2;
-}
-.hero__rule{ border-bottom-color:rgba(235,235,223,0.3); color:var(--nauta-bone); }
-.hero__rule-sep{ color:rgba(235,235,223,0.3); }
-.hero__headline{ color:var(--nauta-bone); }
-.hero__headline em{ color:var(--nauta-orange); }
-.hero__lede{ color:rgba(235,235,223,0.7); }
-.link-quiet{ color:var(--nauta-bone); }
-.link-quiet:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
-.hero__rule{
-  display:flex; gap:14px; align-items:center;
-  padding-bottom:22px; border-bottom:1px solid var(--nauta-ink);
-  margin-bottom:56px;
-  font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:500;
-}
-.hero__rule-sep{ color:var(--fg-3); }
-.hero__headline{
-  font-size:clamp(64px,9vw,128px);
-  line-height:.96; letter-spacing:-0.04em; font-weight:500;
-  margin-bottom:56px;
-}
+/* HERO COM IMAGEM DE FUNDO */
+.hero-wrapper{ position:relative; overflow:hidden; background:var(--nauta-ink); min-height:90vh; display:flex; flex-direction:column; justify-content:center; }
+.hero-wrapper__bg{ position:absolute; inset:0; background-image:url('assets/hero-familia.jpg'); background-size:cover; background-position:center 25%; opacity:0.28; }
+.hero-wrapper__overlay{ position:absolute; inset:0; background:linear-gradient(105deg, rgba(38,38,38,0.92) 0%, rgba(38,38,38,0.70) 45%, rgba(38,38,38,0.25) 100%); }
+.hero{ max-width:1280px; margin:0 auto; padding:100px 32px 112px; position:relative; z-index:2; width:100%; }
+.hero__rule{ display:flex; gap:14px; align-items:center; padding-bottom:22px; border-bottom:1px solid rgba(235,235,223,0.2); margin-bottom:56px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:rgba(235,235,223,0.6); }
+.hero__rule-sep{ color:rgba(235,235,223,0.25); }
+.hero__headline{ font-size:clamp(64px,9vw,128px); line-height:.96; letter-spacing:-0.04em; font-weight:500; margin-bottom:56px; color:var(--nauta-bone); }
 .hero__headline em{ font-style:normal; color:var(--nauta-orange); }
-.hero__lower{
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end;
-}
-.hero__lede{
-  font-size:19px; line-height:1.5; color:var(--fg-2); max-width:480px;
-}
-.hero__actions{
-  display:flex; gap:22px; align-items:center; justify-self:end; flex-wrap:wrap;
-}
-.btn-primary{
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--nauta-orange); color:#fff;
-  font-size:15px; font-weight:500; padding:14px 24px;
-  border-radius:8px;
-  transition:background var(--dur-fast) var(--ease-out);
-}
+.hero__lower{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; }
+.hero__lede{ font-size:19px; line-height:1.5; color:rgba(235,235,223,0.65); max-width:480px; }
+.hero__actions{ display:flex; gap:22px; align-items:center; justify-self:end; flex-wrap:wrap; }
+.btn-primary{ display:inline-flex; align-items:center; gap:8px; background:var(--nauta-orange); color:#fff; font-size:15px; font-weight:500; padding:14px 24px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); }
 .btn-primary:hover{ background:var(--nauta-orange-700); }
-.link-quiet{
-  font-size:15px; color:var(--fg-1);
-  border-bottom:1px solid transparent; padding-bottom:2px;
-  transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
-}
+.link-quiet{ font-size:15px; color:rgba(235,235,223,0.8); border-bottom:1px solid transparent; padding-bottom:2px; transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
 .link-quiet:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
 
-/* ===== NAUTA WORD SECTION ===== */
-.nauta-word{
-  background:var(--nauta-ink); padding:96px 32px;
-  overflow:hidden; position:relative;
-}
-.nauta-word__inner{
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
-}
-.nauta-word__left{}
-.nauta-word__label{
-  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--grey-400); font-weight:500; margin-bottom:24px;
-}
-.nauta-word__word{
-  font-size:clamp(64px,7vw,96px); font-weight:500;
-  letter-spacing:-0.04em; line-height:1;
-  color:var(--nauta-bone); margin-bottom:8px;
-}
-.nauta-word__pron{
-  font-size:14px; color:var(--grey-400); font-style:italic; margin-bottom:32px;
-  letter-spacing:.02em;
-}
-.nauta-word__class{
-  font-size:13px; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--nauta-orange); font-weight:500; margin-bottom:16px;
-}
-.nauta-word__def{
-  font-size:18px; line-height:1.6; color:var(--nauta-bone-deep); margin-bottom:24px;
-}
-.nauta-word__sub{
-  font-size:15px; line-height:1.6; color:var(--grey-400);
-  padding-left:20px; border-left:2px solid var(--nauta-orange);
-}
-.nauta-word__right{
-  display:flex; flex-direction:column; gap:32px;
-}
-.nauta-word__value{
-  padding:28px 32px; border:1px solid var(--grey-700); border-radius:8px;
-  transition:border-color var(--dur-base) var(--ease-out);
-}
+/* NAUTA WORD */
+.nauta-word{ background:var(--nauta-ink); padding:96px 32px; overflow:hidden; position:relative; }
+.nauta-word__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.nauta-word__label{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--grey-400); font-weight:500; margin-bottom:24px; }
+.nauta-word__word{ font-size:clamp(64px,7vw,96px); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--nauta-bone); margin-bottom:8px; }
+.nauta-word__pron{ font-size:14px; color:var(--grey-400); font-style:italic; margin-bottom:32px; letter-spacing:.02em; }
+.nauta-word__class{ font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--nauta-orange); font-weight:500; margin-bottom:16px; }
+.nauta-word__def{ font-size:18px; line-height:1.6; color:var(--nauta-bone-deep); margin-bottom:24px; }
+.nauta-word__sub{ font-size:15px; line-height:1.6; color:var(--grey-400); padding-left:20px; border-left:2px solid var(--nauta-orange); }
+.nauta-word__right{ display:flex; flex-direction:column; gap:32px; }
+.nauta-word__value{ padding:28px 32px; border:1px solid var(--grey-700); border-radius:8px; transition:border-color var(--dur-base) var(--ease-out); }
 .nauta-word__value:hover{ border-color:var(--nauta-orange); }
-.nauta-word__value-num{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--nauta-orange); font-weight:500; margin-bottom:10px;
-}
-.nauta-word__value-title{
-  font-size:20px; font-weight:500; color:var(--nauta-bone); margin-bottom:8px;
-}
-.nauta-word__value-body{
-  font-size:14px; line-height:1.6; color:var(--grey-400);
-}
-.nauta-word__bg-text{
-  position:absolute; bottom:-40px; right:-20px;
-  font-size:clamp(120px,18vw,260px); font-weight:500; letter-spacing:-0.05em;
-  color:rgba(255,255,255,0.025); pointer-events:none; user-select:none;
-  white-space:nowrap; line-height:1;
-}
+.nauta-word__value-num{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--nauta-orange); font-weight:500; margin-bottom:10px; }
+.nauta-word__value-title{ font-size:20px; font-weight:500; color:var(--nauta-bone); margin-bottom:8px; }
+.nauta-word__value-body{ font-size:14px; line-height:1.6; color:var(--grey-400); }
+.nauta-word__bg-text{ position:absolute; bottom:-40px; right:-20px; font-size:clamp(120px,18vw,260px); font-weight:500; letter-spacing:-0.05em; color:rgba(255,255,255,0.025); pointer-events:none; user-select:none; white-space:nowrap; line-height:1; }
 
-/* ===== SERVICOS ===== */
-.servicos{
-  padding:96px 32px; border-top:1px solid var(--border-1);
-}
+/* SERVICOS */
+.servicos{ padding:96px 32px; border-top:1px solid var(--border-1); }
 .servicos__inner{ max-width:1280px; margin:0 auto; }
-.servicos__head{
-  display:grid; grid-template-columns:1fr 2fr; gap:80px;
-  align-items:end; margin-bottom:64px;
-}
-.servicos__title{
-  font-size:clamp(36px,4.5vw,56px); font-weight:500;
-  letter-spacing:-0.03em; line-height:1.05; margin-top:14px;
-}
+.servicos__head{ display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:end; margin-bottom:64px; }
+.servicos__title{ font-size:clamp(36px,4.5vw,56px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; margin-top:14px; }
 .servicos__title em{ font-style:normal; color:var(--nauta-orange); }
-.servicos__lede{
-  font-size:17px; line-height:1.6; color:var(--fg-2); max-width:560px;
-}
-.servicos__grid{
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:1px; background:var(--border-1);
-}
-.servico{
-  background:var(--bg); padding:36px 32px;
-  display:flex; flex-direction:column; gap:14px; min-height:300px;
-  transition:background var(--dur-base) var(--ease-out);
-  cursor:default;
-}
+.servicos__lede{ font-size:17px; line-height:1.6; color:var(--fg-2); max-width:560px; }
+.servicos__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-1); }
+.servico{ background:var(--bg); padding:36px 32px; display:flex; flex-direction:column; gap:14px; min-height:300px; transition:background var(--dur-base) var(--ease-out); cursor:default; }
 .servico:hover{ background:var(--nauta-bone-soft); }
 .servico:hover .servico__title{ color:var(--nauta-orange); }
-.servico__num{
-  font-family:var(--font-mono); font-size:12px;
-  color:var(--nauta-orange); letter-spacing:.04em;
-}
-.servico__title{
-  font-size:22px; font-weight:500; letter-spacing:-0.015em; line-height:1.2;
-  transition:color var(--dur-fast) var(--ease-out);
-}
-.servico__body{
-  font-size:15px; line-height:1.55; color:var(--fg-2); flex:1;
-}
-.servico__arrow{
-  font-size:14px; color:var(--fg-3);
-  transition:transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
+.servico__num{ font-family:var(--font-mono); font-size:12px; color:var(--nauta-orange); letter-spacing:.04em; }
+.servico__title{ font-size:22px; font-weight:500; letter-spacing:-0.015em; line-height:1.2; transition:color var(--dur-fast) var(--ease-out); }
+.servico__body{ font-size:15px; line-height:1.55; color:var(--fg-2); flex:1; }
+.servico__arrow{ font-size:14px; color:var(--fg-3); transition:transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
 .servico:hover .servico__arrow{ transform:translateX(4px); color:var(--nauta-orange); }
 
-/* ===== STATS ===== */
-.stats{
-  background:var(--nauta-ink); padding:80px 32px;
-}
-.stats__inner{
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:repeat(4,1fr); gap:32px;
-}
-.stat{
-  color:var(--nauta-bone);
-  border-left:1px solid var(--grey-700); padding-left:24px;
-}
+/* STATS */
+.stats{ background:var(--nauta-ink); padding:80px 32px; }
+.stats__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
+.stat{ color:var(--nauta-bone); border-left:1px solid var(--grey-700); padding-left:24px; }
 .stat:first-child{ border-left:none; padding-left:0; }
-.stat__val{
-  font-size:clamp(36px,4vw,52px); font-weight:500;
-  line-height:1; letter-spacing:-0.03em;
-}
-.stat__label{
-  font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--grey-400); margin-top:12px;
-}
-.stat__sub{
-  font-size:13px; color:var(--grey-500); margin-top:6px; line-height:1.4;
-}
+.stat__val{ font-size:clamp(36px,4vw,52px); font-weight:500; line-height:1; letter-spacing:-0.03em; }
+.stat__label{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey-400); margin-top:12px; }
+.stat__sub{ font-size:13px; color:var(--grey-500); margin-top:6px; line-height:1.4; }
 
-/* ===== VISAO ===== */
-.visao{
-  padding:96px 32px; border-top:1px solid var(--border-1);
-}
-.visao__inner{
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
-}
-.visao__left{}
-.visao__title{
-  font-size:clamp(36px,4.5vw,52px); font-weight:500;
-  letter-spacing:-0.03em; line-height:1.05; margin-top:14px; margin-bottom:28px;
-}
+/* VISAO */
+.visao{ padding:96px 32px; border-top:1px solid var(--border-1); }
+.visao__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.visao__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; margin-top:14px; margin-bottom:28px; }
 .visao__title em{ font-style:normal; color:var(--nauta-orange); }
-.visao__body{
-  font-size:17px; line-height:1.7; color:var(--fg-2); margin-bottom:20px;
-}
-.visao__right{
-  display:flex; flex-direction:column; gap:24px;
-}
-.visao__card{
-  padding:28px 28px 28px 24px;
-  border-left:2px solid var(--border-2);
-  transition:border-color var(--dur-base) var(--ease-out);
-}
+.visao__body{ font-size:17px; line-height:1.7; color:var(--fg-2); margin-bottom:20px; }
+.visao__right{ display:flex; flex-direction:column; gap:24px; }
+.visao__card{ padding:28px 28px 28px 24px; border-left:2px solid var(--border-2); transition:border-color var(--dur-base) var(--ease-out); }
 .visao__card:hover{ border-color:var(--nauta-orange); }
-.visao__card-icon{
-  margin-bottom:10px; color:var(--nauta-ink);
-  display:flex;
-}
-.visao__card-title{
-  font-size:16px; font-weight:500; margin-bottom:6px;
-}
-.visao__card-body{
-  font-size:14px; line-height:1.6; color:var(--fg-2);
-}
+.visao__card-icon{ margin-bottom:10px; color:var(--nauta-ink); display:flex; }
+.visao__card-title{ font-size:16px; font-weight:500; margin-bottom:6px; }
+.visao__card-body{ font-size:14px; line-height:1.6; color:var(--fg-2); }
 
-/* ===== MODELO (PIRAMIDE) ===== */
-.modelo{
-  background:var(--nauta-bone-soft); padding:96px 32px;
-  border-top:1px solid var(--border-1);
-}
+/* MODELO */
+.modelo{ background:var(--nauta-bone-soft); padding:96px 32px; border-top:1px solid var(--border-1); }
 .modelo__inner{ max-width:1280px; margin:0 auto; }
-.modelo__head{
-  display:grid; grid-template-columns:1fr 2fr; gap:80px;
-  align-items:end; margin-bottom:64px;
-}
-.modelo__title{
-  font-size:clamp(36px,4.5vw,52px); font-weight:500;
-  letter-spacing:-0.03em; line-height:1.05; margin-top:14px;
-}
+.modelo__head{ display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:end; margin-bottom:64px; }
+.modelo__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; margin-top:14px; }
 .modelo__title em{ font-style:normal; color:var(--nauta-orange); }
 .modelo__lede{ font-size:17px; line-height:1.6; color:var(--fg-2); max-width:560px; }
-.modelo__steps{
-  display:flex; flex-direction:column; gap:1px;
-}
-.modelo__step{
-  display:grid; grid-template-columns:80px 1fr auto;
-  gap:24px; align-items:center;
-  padding:28px 32px;
-  background:var(--bg);
-  border-radius:0;
-  transition:background var(--dur-fast) var(--ease-out);
-  cursor:default;
-}
+.modelo__steps{ display:flex; flex-direction:column; gap:1px; }
+.modelo__step{ display:grid; grid-template-columns:80px 1fr auto; gap:24px; align-items:center; padding:28px 32px; background:var(--bg); transition:background var(--dur-fast) var(--ease-out); cursor:default; }
 .modelo__step:first-child{ border-radius:8px 8px 0 0; }
 .modelo__step:last-child{ border-radius:0 0 8px 8px; }
 .modelo__step:hover{ background:var(--nauta-bone-deep); }
-.modelo__step-letter{
-  font-size:clamp(36px,4vw,48px); font-weight:500;
-  letter-spacing:-0.04em; line-height:1;
-  color:var(--nauta-orange);
-}
-.modelo__step-body{}
-.modelo__step-tag{
-  font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-  font-weight:500; color:var(--grey-400); margin-bottom:4px;
-}
-.modelo__step-title{
-  font-size:18px; font-weight:500; margin-bottom:4px;
-}
-.modelo__step-desc{
-  font-size:14px; color:var(--fg-2); line-height:1.5;
-}
-.modelo__step-badge{
-  font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-  font-weight:500; padding:6px 14px; border-radius:999px;
-  background:var(--nauta-orange-100); color:var(--nauta-orange);
-  white-space:nowrap;
-}
+.modelo__step-letter{ font-size:clamp(36px,4vw,48px); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--nauta-orange); }
+.modelo__step-tag{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:500; color:var(--grey-400); margin-bottom:4px; }
+.modelo__step-title{ font-size:18px; font-weight:500; margin-bottom:4px; }
+.modelo__step-desc{ font-size:14px; color:var(--fg-2); line-height:1.5; }
+.modelo__step-badge{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:500; padding:6px 14px; border-radius:999px; background:var(--nauta-orange-100); color:var(--nauta-orange); white-space:nowrap; }
 
-/* ===== PLATAFORMA XP ===== */
-.plataforma{
-  background:var(--nauta-ink); padding:96px 32px;
-}
-.plataforma__inner{
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
-}
-.plataforma__left{}
-.plataforma__label{
-  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--grey-400); font-weight:500; margin-bottom:24px;
-}
-.plataforma__title{
-  font-size:clamp(36px,4.5vw,52px); font-weight:500;
-  letter-spacing:-0.03em; line-height:1.05; color:var(--nauta-bone);
-  margin-bottom:24px;
-}
+/* PLATAFORMA XP */
+.plataforma{ background:var(--nauta-ink); padding:96px 32px; }
+.plataforma__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.plataforma__label{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--grey-400); font-weight:500; margin-bottom:24px; }
+.plataforma__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; color:var(--nauta-bone); margin-bottom:24px; }
 .plataforma__title em{ font-style:normal; color:var(--nauta-orange); }
-.plataforma__body{
-  font-size:16px; line-height:1.7; color:var(--grey-400); margin-bottom:32px;
-}
-.plataforma__xp-badge{
-  display:inline-flex; align-items:center; gap:12px;
-  padding:14px 20px; border:1px solid var(--grey-700); border-radius:8px;
-  color:var(--nauta-bone); font-size:14px; font-weight:500;
-}
-.plataforma__xp-logo{
-  background:#fff; color:#000; font-size:16px; font-weight:700;
-  padding:4px 8px; border-radius:4px; letter-spacing:-.02em;
-}
-.plataforma__right{
-  display:grid; grid-template-columns:1fr 1fr; gap:16px;
-}
-.plataforma__item{
-  padding:24px; border:1px solid var(--grey-700); border-radius:8px;
-  transition:border-color var(--dur-base) var(--ease-out);
-}
+.plataforma__body{ font-size:16px; line-height:1.7; color:var(--grey-400); margin-bottom:32px; }
+.plataforma__xp-badge{ display:inline-flex; align-items:center; gap:12px; padding:14px 20px; border:1px solid var(--grey-700); border-radius:8px; color:var(--nauta-bone); font-size:14px; font-weight:500; }
+.plataforma__xp-logo{ background:#fff; color:#000; font-size:16px; font-weight:700; padding:4px 8px; border-radius:4px; letter-spacing:-.02em; }
+.plataforma__right{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.plataforma__item{ padding:24px; border:1px solid var(--grey-700); border-radius:8px; transition:border-color var(--dur-base) var(--ease-out); }
 .plataforma__item:hover{ border-color:var(--nauta-orange); }
-.plataforma__item-icon{
-  margin-bottom:14px; display:flex; align-items:center;
-}
-.plataforma__item-title{
-  font-size:14px; font-weight:500; color:var(--nauta-bone); margin-bottom:6px;
-}
-.plataforma__item-body{
-  font-size:13px; line-height:1.55; color:var(--grey-500);
-}
+.plataforma__item-icon{ margin-bottom:14px; display:flex; align-items:center; }
+.plataforma__item-title{ font-size:14px; font-weight:500; color:var(--nauta-bone); margin-bottom:6px; }
+.plataforma__item-body{ font-size:13px; line-height:1.55; color:var(--grey-500); }
 
-/* ===== OFERTA DE VALOR ===== */
-.oferta{
-  padding:96px 32px; border-top:1px solid var(--border-1);
-}
+/* OFERTA */
+.oferta{ padding:96px 32px; border-top:1px solid var(--border-1); }
 .oferta__inner{ max-width:1280px; margin:0 auto; }
-.oferta__head{
-  text-align:center; margin-bottom:64px;
-}
-.oferta__title{
-  font-size:clamp(36px,4.5vw,52px); font-weight:500;
-  letter-spacing:-0.03em; line-height:1.05; margin-top:14px;
-}
+.oferta__head{ text-align:center; margin-bottom:64px; }
+.oferta__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; margin-top:14px; }
 .oferta__title em{ font-style:normal; color:var(--nauta-orange); }
-.oferta__grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-}
-.oferta__card{
-  padding:32px; border:1px solid var(--border-1); border-radius:8px;
-  display:flex; flex-direction:column; gap:12px;
-  transition:border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
-}
-.oferta__card:hover{
-  border-color:var(--nauta-orange);
-  box-shadow:var(--shadow-2);
-}
-.oferta__card-icon{
-  width:40px; height:40px;
-  color:var(--nauta-ink);
-  display:flex; align-items:center; justify-content:center;
-}
-.oferta__card-title{
-  font-size:18px; font-weight:500; letter-spacing:-0.01em;
-}
-.oferta__card-body{
-  font-size:14px; line-height:1.6; color:var(--fg-2);
-}
+.oferta__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.oferta__card{ padding:32px; border:1px solid var(--border-1); border-radius:8px; display:flex; flex-direction:column; gap:12px; transition:border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.oferta__card:hover{ border-color:var(--nauta-orange); box-shadow:var(--shadow-2); }
+.oferta__card-icon{ width:40px; height:40px; color:var(--nauta-ink); display:flex; align-items:center; justify-content:center; }
+.oferta__card-title{ font-size:18px; font-weight:500; letter-spacing:-0.01em; }
+.oferta__card-body{ font-size:14px; line-height:1.6; color:var(--fg-2); }
 
-/* ===== CRESCER JUNTO ===== */
-.crescer{
-  background:var(--nauta-ink); padding:96px 32px; text-align:center;
-  position:relative; overflow:hidden;
-}
-.crescer__inner{
-  max-width:800px; margin:0 auto; position:relative; z-index:2;
-}
-.crescer__label{
-  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--grey-400); font-weight:500; margin-bottom:32px;
-}
-.crescer__title{
-  font-size:clamp(40px,6vw,80px); font-weight:500;
-  letter-spacing:-0.04em; line-height:1; color:var(--nauta-bone);
-  margin-bottom:24px;
-}
+/* CRESCER */
+.crescer{ background:var(--nauta-ink); padding:96px 32px; text-align:center; position:relative; overflow:hidden; }
+.crescer__inner{ max-width:800px; margin:0 auto; position:relative; z-index:2; }
+.crescer__label{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--grey-400); font-weight:500; margin-bottom:32px; }
+.crescer__title{ font-size:clamp(40px,6vw,80px); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--nauta-bone); margin-bottom:24px; }
 .crescer__title em{ font-style:normal; color:var(--nauta-orange); }
-.crescer__body{
-  font-size:18px; line-height:1.6; color:var(--grey-400); margin-bottom:40px;
-}
-.crescer__actions{
-  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
-}
-.btn-primary-lg{
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--nauta-orange); color:#fff;
-  font-size:16px; font-weight:500; padding:16px 28px;
-  border-radius:8px;
-  transition:background var(--dur-fast) var(--ease-out);
-}
+.crescer__body{ font-size:18px; line-height:1.6; color:var(--grey-400); margin-bottom:40px; }
+.crescer__actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn-primary-lg{ display:inline-flex; align-items:center; gap:10px; background:var(--nauta-orange); color:#fff; font-size:16px; font-weight:500; padding:16px 28px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); }
 .btn-primary-lg:hover{ background:var(--nauta-orange-700); }
-.btn-ghost{
-  display:inline-flex; align-items:center; gap:10px;
-  border:1px solid var(--grey-700); color:var(--nauta-bone);
-  font-size:16px; font-weight:500; padding:16px 28px;
-  border-radius:8px;
-  transition:border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
+.btn-ghost{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--grey-700); color:var(--nauta-bone); font-size:16px; font-weight:500; padding:16px 28px; border-radius:8px; transition:border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
 .btn-ghost:hover{ border-color:var(--nauta-bone); }
-.crescer__bg{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  font-size:clamp(200px,30vw,400px); font-weight:500; letter-spacing:-0.05em;
-  color:rgba(255,255,255,0.025); pointer-events:none; user-select:none;
-  white-space:nowrap; line-height:1; z-index:1;
-}
+.crescer__bg{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:clamp(200px,30vw,400px); font-weight:500; letter-spacing:-0.05em; color:rgba(255,255,255,0.025); pointer-events:none; user-select:none; white-space:nowrap; line-height:1; z-index:1; }
 
-/* ===== CONTATO ===== */
-.contato{
-  padding:96px 32px; border-top:1px solid var(--border-1);
-}
-.contato__inner{
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr; gap:80px;
-}
-.contato__left{}
-.contato__title{
-  font-size:clamp(36px,4.5vw,52px); font-weight:500;
-  letter-spacing:-0.03em; line-height:1.05; margin-top:14px; margin-bottom:24px;
-}
+/* CONTATO */
+.contato{ padding:96px 32px; border-top:1px solid var(--border-1); }
+.contato__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; }
+.contato__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; margin-top:14px; margin-bottom:24px; }
 .contato__title em{ font-style:normal; color:var(--nauta-orange); }
-.contato__body{
-  font-size:16px; line-height:1.7; color:var(--fg-2); margin-bottom:32px;
-}
+.contato__body{ font-size:16px; line-height:1.7; color:var(--fg-2); margin-bottom:32px; }
 .contato__meta{ display:flex; flex-direction:column; gap:16px; }
 .contato__meta-item{ display:flex; flex-direction:column; gap:2px; }
-.contato__meta-label{
-  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:500; color:var(--fg-3);
-}
+.contato__meta-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--fg-3); }
 .contato__meta-val{ font-size:15px; color:var(--fg-1); }
 .contato__meta-val a:hover{ color:var(--nauta-orange); }
-.contato__form{
-  display:flex; flex-direction:column; gap:16px;
-}
+.contato__form{ display:flex; flex-direction:column; gap:16px; }
 .field{ display:flex; flex-direction:column; gap:6px; }
-.field label{
-  font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-  font-weight:500; color:var(--fg-3);
-}
-.field input, .field select, .field textarea{
-  width:100%; font-family:var(--font-sans); font-size:15px;
-  padding:13px 14px; border:1px solid var(--border-2); border-radius:8px;
-  background:var(--nauta-bone-soft); color:var(--fg-1);
-  transition:border-color var(--dur-fast) var(--ease-out);
-  outline:none; -webkit-appearance:none;
-}
-.field input:focus, .field select:focus, .field textarea:focus{
-  border-color:var(--nauta-orange);
-}
+.field label{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:500; color:var(--fg-3); }
+.field input,.field select,.field textarea{ width:100%; font-family:var(--font-sans); font-size:15px; padding:13px 14px; border:1px solid var(--border-2); border-radius:8px; background:var(--nauta-bone-soft); color:var(--fg-1); transition:border-color var(--dur-fast) var(--ease-out); outline:none; -webkit-appearance:none; }
+.field input:focus,.field select:focus,.field textarea:focus{ border-color:var(--nauta-orange); }
 .field textarea{ resize:vertical; min-height:100px; }
 .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .form-row{ display:flex; flex-direction:column; gap:6px; }
-.form-row label{
-  font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-  font-weight:500; color:var(--fg-3);
-}
-.form-row input, .form-row select{
-  width:100%; font-family:var(--font-sans); font-size:15px;
-  padding:13px 14px; border:1px solid var(--border-2); border-radius:8px;
-  background:var(--nauta-bone-soft); color:var(--fg-1);
-  transition:border-color var(--dur-fast) var(--ease-out);
-  outline:none; -webkit-appearance:none;
-}
-.form-row input:focus, .form-row select:focus{
-  border-color:var(--nauta-orange);
-}
+.form-row label{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:500; color:var(--fg-3); }
+.form-row input,.form-row select{ width:100%; font-family:var(--font-sans); font-size:15px; padding:13px 14px; border:1px solid var(--border-2); border-radius:8px; background:var(--nauta-bone-soft); color:var(--fg-1); transition:border-color var(--dur-fast) var(--ease-out); outline:none; -webkit-appearance:none; }
+.form-row input:focus,.form-row select:focus{ border-color:var(--nauta-orange); }
 .form-fine{ font-size:12px; color:var(--fg-3); line-height:1.5; }
-.form-success{
-  padding:32px; border:1px solid var(--border-1); border-radius:8px;
-  text-align:center; display:none;
-}
+.form-success{ padding:32px; border:1px solid var(--border-1); border-radius:8px; text-align:center; display:none; }
 .form-success.show{ display:block; }
 .form-success h3{ font-size:24px; font-weight:500; margin-bottom:12px; }
 .form-success p{ font-size:15px; color:var(--fg-2); }
 
-/* ===== FOOTER ===== */
-.footer{
-  background:var(--nauta-ink); padding:64px 32px 32px;
-}
-.footer__inner{
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:48px; margin-bottom:48px;
-}
+/* FOOTER */
+.footer{ background:var(--nauta-ink); padding:64px 32px 32px; }
+.footer__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
 .footer__brand img{ height:26px; margin-bottom:16px; }
-.footer__brand p{
-  font-size:14px; line-height:1.6; color:var(--grey-500);
-}
-.footer__col h6{
-  font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-  font-weight:500; color:var(--nauta-bone); margin-bottom:16px;
-}
-.footer__col a{
-  display:block; font-size:14px; color:var(--grey-500);
-  margin-bottom:10px;
-  transition:color var(--dur-fast) var(--ease-out);
-}
+.footer__brand p{ font-size:14px; line-height:1.6; color:var(--grey-500); }
+.footer__col h6{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--nauta-bone); margin-bottom:16px; }
+.footer__col a{ display:block; font-size:14px; color:var(--grey-500); margin-bottom:10px; transition:color var(--dur-fast) var(--ease-out); }
 .footer__col a:hover{ color:var(--nauta-orange); }
-.footer__legal{
-  max-width:1280px; margin:0 auto;
-  display:flex; justify-content:space-between; align-items:center;
-  padding-top:24px; border-top:1px solid var(--grey-700);
-  flex-wrap:wrap; gap:12px;
-}
+.footer__legal{ max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid var(--grey-700); flex-wrap:wrap; gap:12px; }
 .footer__legal span{ font-size:13px; color:var(--grey-600); }
 
-/* ===== DISCLAIMER ===== */
-.disclaimer{
-  background:var(--nauta-ink-900,#1A1A1A);
-  border-top:1px solid rgba(255,255,255,0.06);
-  padding:32px;
-}
-.disclaimer__inner{
-  max-width:1280px; margin:0 auto;
-}
-.disclaimer__text{
-  font-size:11px; line-height:1.75; color:var(--grey-600);
-  text-align:justify;
-}
-.disclaimer__text strong{
-  color:var(--grey-500); font-weight:500;
-}
+/* DISCLAIMER */
+.disclaimer{ background:#1A1A1A; border-top:1px solid rgba(255,255,255,0.06); padding:32px; }
+.disclaimer__inner{ max-width:1280px; margin:0 auto; }
+.disclaimer__text{ font-size:11px; line-height:1.75; color:var(--grey-600); text-align:justify; }
+.disclaimer__text strong{ color:var(--grey-500); font-weight:500; }
 
-/* ===== PRIVACIDADE MODAL ===== */
-.privacy-bar{
-  background:#111; padding:14px 32px;
-  border-top:1px solid rgba(255,255,255,0.05);
-}
-.privacy-bar__inner{
-  max-width:1280px; margin:0 auto;
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:12px;
-}
-.privacy-bar__label{
-  font-size:12px; letter-spacing:.1em; text-transform:uppercase;
-  font-weight:500; color:var(--grey-600);
-}
-.privacy-bar__links{
-  display:flex; gap:24px; flex-wrap:wrap;
-}
-.privacy-bar__links a{
-  font-size:12px; color:var(--grey-500);
-  border-bottom:1px solid transparent; padding-bottom:1px;
-  transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
-}
-.privacy-bar__links a:hover{
-  color:var(--nauta-orange); border-color:var(--nauta-orange);
-}
+/* PRIVACY BAR */
+.privacy-bar{ background:#111; padding:14px 32px; border-top:1px solid rgba(255,255,255,0.05); }
+.privacy-bar__inner{ max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.privacy-bar__label{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:500; color:var(--grey-600); }
+.privacy-bar__links{ display:flex; gap:24px; flex-wrap:wrap; }
+.privacy-bar__links a{ font-size:12px; color:var(--grey-500); border-bottom:1px solid transparent; padding-bottom:1px; transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.privacy-bar__links a:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
 
-
-/* ===== MOBILE NAV DRAWER ===== */
-.nav__mobile{
-  display:none; position:fixed; inset:0; background:var(--nauta-ink);
-  z-index:200; flex-direction:column; padding:32px;
-}
+/* MOBILE NAV */
+.nav__mobile{ display:none; position:fixed; inset:0; background:var(--nauta-ink); z-index:200; flex-direction:column; padding:32px; }
 .nav__mobile.open{ display:flex; }
-.nav__mobile-header{
-  display:flex; justify-content:space-between; align-items:center;
-  margin-bottom:48px;
-}
+.nav__mobile-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:48px; }
 .nav__mobile-header img{ height:26px; }
-.nav__mobile-close{
-  font-size:28px; color:var(--nauta-bone); background:none;
-  cursor:pointer; line-height:1;
-}
-.nav__mobile-links{
-  display:flex; flex-direction:column; gap:8px;
-}
-.nav__mobile-links a{
-  font-size:28px; font-weight:500; letter-spacing:-0.02em;
-  color:var(--nauta-bone); padding:8px 0;
-  border-bottom:1px solid var(--grey-700);
-  transition:color var(--dur-fast) var(--ease-out);
-}
+.nav__mobile-close{ font-size:28px; color:var(--nauta-bone); background:none; cursor:pointer; line-height:1; }
+.nav__mobile-links{ display:flex; flex-direction:column; gap:8px; }
+.nav__mobile-links a{ font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--nauta-bone); padding:8px 0; border-bottom:1px solid var(--grey-700); transition:color var(--dur-fast) var(--ease-out); }
 .nav__mobile-links a:hover{ color:var(--nauta-orange); }
-.nav__mobile-cta{
-  margin-top:32px;
-}
+.nav__mobile-cta{ margin-top:32px; }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:900px){
   .nav__links,.nav__cta{ display:none; }
   .nav__hamburger{ display:flex; }
@@ -718,31 +288,23 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 @media(max-width:600px){
   .hero__headline{ font-size:clamp(48px,13vw,64px); }
   .hero-wrapper{ min-height:auto; }
-  .hero-wrapper__overlay{ background:rgba(38,38,38,0.82); }
-  .hero-wrapper__gradient{ background:linear-gradient(to bottom, rgba(38,38,38,0.9) 0%, rgba(38,38,38,0.6) 100%); }
+  .hero-wrapper__overlay{ background:rgba(38,38,38,0.85); }
   .stats__inner{ grid-template-columns:1fr 1fr; }
   .oferta__grid{ grid-template-columns:1fr; }
   .plataforma__right{ grid-template-columns:1fr; }
   .form-grid{ grid-template-columns:1fr; }
   .footer__inner{ grid-template-columns:1fr; }
   .nav__inner{ padding:0 20px; }
-  .hero,.nauta-word,.servicos,.visao,.modelo,.plataforma,.oferta,.crescer,.contato,.footer{
-    padding-left:20px; padding-right:20px;
-  }
+  .hero,.nauta-word,.servicos,.visao,.modelo,.plataforma,.oferta,.crescer,.contato,.footer{ padding-left:20px; padding-right:20px; }
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp{
-  from{ opacity:0; transform:translateY(24px); }
-  to{ opacity:1; transform:translateY(0); }
-}
+/* ANIMATIONS */
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(24px); } to{ opacity:1; transform:translateY(0); } }
 .animate-in{ animation:fadeUp 0.6s var(--ease-out) both; }
 .animate-in[data-delay="1"]{ animation-delay:.1s; }
 .animate-in[data-delay="2"]{ animation-delay:.2s; }
 .animate-in[data-delay="3"]{ animation-delay:.3s; }
 .animate-in[data-delay="4"]{ animation-delay:.4s; }
-
-/* Intersection observer targets */
 .reveal{ opacity:0; transform:translateY(20px); transition:opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
 .reveal.visible{ opacity:1; transform:none; }
 .reveal[data-delay="1"]{ transition-delay:.1s; }
@@ -776,7 +338,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <header class="nav" id="mainNav">
   <div class="nav__inner">
     <a href="#" class="nav__brand">
-      <img src="assets/logo-fullblack.png" alt="Nauta Investimentos"/>
+      <img src="assets/logo-fullblack.png" alt="Nauta Investimentos" style="height: 60px;"/>
     </a>
     <nav class="nav__links">
       <a href="#nauta">Quem somos</a>
@@ -796,29 +358,28 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <!-- HERO -->
 <div class="hero-wrapper">
   <div class="hero-wrapper__bg"></div>
-  <div class="hero-wrapper__gradient"></div>
+  <div class="hero-wrapper__overlay"></div>
   <section class="hero">
-  <div class="hero__rule animate-in">
-    <span>01</span>
-    <span class="hero__rule-sep">—</span>
-    <span>Assessoria de investimentos</span>
-    <span class="hero__rule-sep">·</span>
-    <span>Campos & Macaé, RJ</span>
-  </div>
-  <h1 class="hero__headline animate-in" data-delay="1">
-    Patrimônio<br/>com <em>rota.</em>
-  </h1>
-  <div class="hero__lower">
-    <p class="hero__lede animate-in" data-delay="2">
-      Conduzimos famílias, fundadores e empresas através de ciclos de mercado com
-      ética, transparência e visão de longo prazo. Somos o parceiro que cresce junto com você.
-    </p>
-    <div class="hero__actions animate-in" data-delay="3">
-      <a class="btn-primary" href="#contato">Agendar conversa →</a>
-      <a class="link-quiet" href="#nauta">Conheça a Nauta →</a>
+    <div class="hero__rule animate-in">
+      <span>01</span>
+      <span class="hero__rule-sep">—</span>
+      <span>Assessoria de investimentos</span>
+      <span class="hero__rule-sep">·</span>
+      <span>Campos & Macaé, RJ</span>
     </div>
-  </div>
-</section>
+    <h1 class="hero__headline animate-in" data-delay="1">
+      Cuidamos<br/>de <em>histórias.</em>
+    </h1>
+    <div class="hero__lower">
+      <p class="hero__lede animate-in" data-delay="2">
+        Sua história começa muito antes dos investimentos. Por isso tratamos seu patrimônio com o cuidado que ele merece.
+      </p>
+      <div class="hero__actions animate-in" data-delay="3">
+        <a class="btn-primary" href="#contato">Agendar conversa →</a>
+        <a class="link-quiet" href="#nauta">Conheça a Nauta →</a>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- NAUTA — O SIGNIFICADO -->
@@ -843,43 +404,31 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
       <div class="nauta-word__value">
         <div class="nauta-word__value-num">Princípio 01</div>
         <div class="nauta-word__value-title">Ética como bússola</div>
-        <div class="nauta-word__value-body">
-          Assim como o nauta confia em sua bússola mesmo quando o céu está encoberto,
-          nossas decisões são guiadas pela ética e pela transparência — independentemente
-          do cenário de mercado.
-        </div>
+        <div class="nauta-word__value-body">Assim como o nauta confia em sua bússola mesmo quando o céu está encoberto, nossas decisões são guiadas pela ética e pela transparência — independentemente do cenário de mercado.</div>
       </div>
       <div class="nauta-word__value">
         <div class="nauta-word__value-num">Princípio 02</div>
         <div class="nauta-word__value-title">Visão de longo prazo</div>
-        <div class="nauta-word__value-body">
-          O horizonte importa mais que a última onda. Construímos estratégias pensadas
-          em ciclos completos de mercado, não em resultados imediatos.
-        </div>
+        <div class="nauta-word__value-body">O horizonte importa mais que a última onda. Construímos estratégias pensadas em ciclos completos de mercado, não em resultados imediatos.</div>
       </div>
       <div class="nauta-word__value">
         <div class="nauta-word__value-num">Princípio 03</div>
         <div class="nauta-word__value-title">Crescer junto com o cliente</div>
-        <div class="nauta-word__value-body">
-          Quando seu patrimônio cresce, crescemos juntos. Nosso sucesso é uma
-          consequência direta do sucesso de cada cliente que atendemos.
-        </div>
+        <div class="nauta-word__value-body">Quando seu patrimônio cresce, crescemos juntos. Nosso sucesso é uma consequência direta do sucesso de cada cliente que atendemos.</div>
       </div>
     </div>
   </div>
-  <div class="nauta-word__bg-text">Nauta</div>
 </section>
 
-<!-- QUEM SOMOS (STATS) -->
+<!-- STATS -->
 <section class="stats">
   <div class="stats__inner">
     <div class="stat reveal">
-      <div class="stat__val tabular orange">+R$ 1,1 bi</div>
+      <div class="stat__val tabular orange">+R$ 1,3 bi</div>
       <div class="stat__label">Ativos sob assessoria</div>
-      <div class="stat__sub">Crescimento de +12% nos últimos 12 meses</div>
     </div>
     <div class="stat reveal" data-delay="1">
-      <div class="stat__val tabular orange">+2.700</div>
+      <div class="stat__val tabular orange">+3.000</div>
       <div class="stat__label">Clientes ativos</div>
       <div class="stat__sub">Em todo o Brasil e no exterior</div>
     </div>
@@ -902,45 +451,27 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
     <div class="servicos__head reveal">
       <div>
         <span class="eyebrow">O que fazemos</span>
-        <h2 class="servicos__title">
-          Três frentes,<br/>uma <em>mesma travessia.</em>
-        </h2>
+        <h2 class="servicos__title">Três frentes,<br/>uma <em>mesma travessia.</em></h2>
       </div>
-      <p class="servicos__lede">
-        Somos um escritório credenciado à XP Investimentos com atuação completa em assessoria
-        de investimentos e soluções patrimoniais. Atendemos pessoas físicas, famílias e empresas
-        que buscam uma relação de longo prazo com seus investimentos.
-      </p>
+      <p class="servicos__lede">Somos um escritório credenciado à XP Investimentos com atuação completa em assessoria de investimentos e soluções patrimoniais. Atendemos pessoas físicas, famílias e empresas que buscam uma relação de longo prazo com seus investimentos.</p>
     </div>
     <div class="servicos__grid">
       <article class="servico reveal" data-delay="1">
         <div class="servico__num">01</div>
         <h3 class="servico__title">Assessoria de investimentos</h3>
-        <p class="servico__body">
-          Carteiras estruturadas com horizonte definido, alocação multi-ativo e revisão
-          contínua. Renda fixa, renda variável, FIIs, previdência privada e mercado global
-          em uma única assessoria integrada.
-        </p>
+        <p class="servico__body">Carteiras estruturadas com horizonte definido, alocação multi-ativo e revisão contínua. Renda fixa, renda variável, FIIs, previdência privada e mercado global em uma única assessoria integrada.</p>
         <span class="servico__arrow">Saiba mais →</span>
       </article>
       <article class="servico reveal" data-delay="2">
         <div class="servico__num">02</div>
         <h3 class="servico__title">Estruturação patrimonial</h3>
-        <p class="servico__body">
-          Proteção e sucessão patrimonial sob medida para cada família. Holdings, instrumentos
-          sucessórios, seguros e planejamento tributário desenhados para proteger o que você
-          construiu ao longo da vida.
-        </p>
+        <p class="servico__body">Proteção e sucessão patrimonial sob medida para cada família. Holdings, instrumentos sucessórios, seguros e planejamento tributário desenhados para proteger o que você construiu ao longo da vida.</p>
         <span class="servico__arrow">Saiba mais →</span>
       </article>
       <article class="servico reveal" data-delay="3">
         <div class="servico__num">03</div>
         <h3 class="servico__title">Soluções globais</h3>
-        <p class="servico__body">
-          Abertura de conta internacional, movimentação em dólares e portfólios em moeda forte
-          com custódia institucional. Acesso ao mercado global com a orientação de quem
-          conhece o seu perfil.
-        </p>
+        <p class="servico__body">Abertura de conta internacional, movimentação em dólares e portfólios em moeda forte com custódia institucional. Acesso ao mercado global com a orientação de quem conhece o seu perfil.</p>
         <span class="servico__arrow">Saiba mais →</span>
       </article>
     </div>
@@ -952,72 +483,44 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   <div class="visao__inner">
     <div class="visao__left reveal">
       <span class="eyebrow">Nossa visão</span>
-      <h2 class="visao__title">
-        Parceiros de uma <em>jornada,</em><br/>não de uma transação.
-      </h2>
-      <p class="visao__body">
-        Acreditamos que a assessoria de investimentos vai muito além da escolha de ativos.
-        É sobre entender o momento de vida de cada cliente, seus objetivos pessoais,
-        familiares e empresariais — e construir uma estratégia que respeite o tempo do capital.
-      </p>
-      <p class="visao__body">
-        Tendo a ética e a transparência como princípios fundamentais, buscamos oferecer
-        a melhor experiência em assessoria de investimentos para que cada cliente possa
-        realizar todos os seus objetivos.
-      </p>
+      <h2 class="visao__title">Parceiros de uma <em>jornada,</em><br/>não de uma transação.</h2>
+      <p class="visao__body">Acreditamos que a assessoria de investimentos vai muito além da escolha de ativos. É sobre entender o momento de vida de cada cliente, seus objetivos pessoais, familiares e empresariais — e construir uma estratégia que respeite o tempo do capital.</p>
+      <p class="visao__body">Tendo a ética e a transparência como princípios fundamentais, buscamos oferecer a melhor experiência em assessoria de investimentos para que cada cliente possa realizar todos os seus objetivos.</p>
     </div>
     <div class="visao__right">
       <div class="visao__card reveal" data-delay="1">
         <div class="visao__card-icon"><svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5"/><polygon points="20,10 23,20 20,18 17,20" fill="#FF5100"/><polygon points="20,30 17,20 20,22 23,20" fill="currentColor" opacity="0.3"/><circle cx="20" cy="20" r="2" fill="#FF5100"/></svg></div>
         <div class="visao__card-title">Financial Planning personalizado</div>
-        <div class="visao__card-body">
-          Processo completo de levantamento de informações, definição e acompanhamento
-          de objetivos financeiros e patrimoniais.
-        </div>
+        <div class="visao__card-body">Processo completo de levantamento de informações, definição e acompanhamento de objetivos financeiros e patrimoniais.</div>
       </div>
       <div class="visao__card reveal" data-delay="2">
         <div class="visao__card-icon"><svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="8" x2="20" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="32" x2="26" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="10" x2="8" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="10" x2="32" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 14 L5 21 C5 23.2 6.3 24 8 24 C9.7 24 11 23.2 11 21 Z" stroke="#FF5100" stroke-width="1.5" stroke-linejoin="round"/><path d="M32 14 L29 21 C29 23.2 30.3 24 32 24 C33.7 24 35 23.2 35 21 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" opacity="0.4"/></svg></div>
         <div class="visao__card-title">Assessoria 360°</div>
-        <div class="visao__card-body">
-          Soluções estruturadas cobrindo investimentos, crédito, banking, tributação e
-          sucessão em uma visão integrada do seu patrimônio.
-        </div>
+        <div class="visao__card-body">Soluções estruturadas cobrindo investimentos, crédito, banking, tributação e sucessão em uma visão integrada do seu patrimônio.</div>
       </div>
       <div class="visao__card reveal" data-delay="3">
         <div class="visao__card-icon"><svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="22" width="6" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="17" y="16" width="6" height="16" rx="1.5" stroke="#FF5100" stroke-width="1.5"/><rect x="25" y="10" width="6" height="22" rx="1.5" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="32" x2="33" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="visao__card-title">Revisões estratégicas</div>
-        <div class="visao__card-body">
-          Reuniões periódicas para acompanhamento das estratégias traçadas, com
-          relatórios mensais e transparência total no portfólio.
-        </div>
+        <div class="visao__card-body">Reuniões periódicas para acompanhamento das estratégias traçadas, com relatórios mensais e transparência total no portfólio.</div>
       </div>
       <div class="visao__card reveal" data-delay="4">
         <div class="visao__card-icon"><svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><circle cx="20" cy="20" r="3.5" fill="#FF5100"/><line x1="28" y1="12" x2="23" y2="17" stroke="#FF5100" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="8" x2="28" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="8" x2="33" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="visao__card-title">Eventos exclusivos</div>
-        <div class="visao__card-body">
-          Encontros com assessores e gestores de fundos para avaliação do cenário
-          macroeconômico e das melhores oportunidades de investimento.
-        </div>
+        <div class="visao__card-body">Encontros com assessores e gestores de fundos para avaliação do cenário macroeconômico e das melhores oportunidades de investimento.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MODELO DE SERVIÇO -->
+<!-- MODELO -->
 <section class="modelo" id="modelo">
   <div class="modelo__inner">
     <div class="modelo__head reveal">
       <div>
         <span class="eyebrow">Nosso modelo</span>
-        <h2 class="modelo__title">
-          A estratégia<br/><em>WISE.</em>
-        </h2>
+        <h2 class="modelo__title">A estratégia<br/><em>WISE.</em></h2>
       </div>
-      <p class="modelo__lede">
-        Uma estratégia financeira bem-sucedida começa pelas bases. O modelo WISE organiza
-        as prioridades de forma clara — da geração de renda até a conquista da independência
-        financeira — garantindo que cada etapa seja construída sobre uma base sólida.
-      </p>
+      <p class="modelo__lede">Uma estratégia financeira bem-sucedida começa pelas bases. O modelo WISE organiza as prioridades de forma clara — da geração de renda até a conquista da independência financeira — garantindo que cada etapa seja construída sobre uma base sólida.</p>
     </div>
     <div class="modelo__steps">
       <div class="modelo__step reveal" data-delay="1">
@@ -1065,15 +568,8 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   <div class="plataforma__inner">
     <div class="plataforma__left reveal">
       <div class="plataforma__label">Nossa plataforma</div>
-      <h2 class="plataforma__title">
-        O ecossistema <em>XP</em> a seu favor.
-      </h2>
-      <p class="plataforma__body">
-        Credenciados à XP Investimentos — líder em plataforma de investimentos no Brasil,
-        com mais de R$ 1,2 trilhão sob custódia e +4,6 milhões de clientes — oferecemos
-        acesso a mais de 800 produtos financeiros com a orientação personalizada de quem
-        conhece seu perfil.
-      </p>
+      <h2 class="plataforma__title">O ecossistema <em>XP</em> a seu favor.</h2>
+      <p class="plataforma__body">Credenciados à XP Investimentos — líder em plataforma de investimentos no Brasil, com mais de R$ 1,2 trilhão sob custódia e +4,6 milhões de clientes — oferecemos acesso a mais de 800 produtos financeiros com a orientação personalizada de quem conhece seu perfil.</p>
       <div class="plataforma__xp-badge">
         <span class="plataforma__xp-logo">XP</span>
         Escritório credenciado XP Investimentos
@@ -1118,20 +614,13 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <section class="crescer">
   <div class="crescer__inner reveal">
     <div class="crescer__label">Por que a Nauta</div>
-    <h2 class="crescer__title">
-      Quando você <em>cresce,</em><br/>crescemos juntos.
-    </h2>
-    <p class="crescer__body">
-      Nossa remuneração está alinhada ao seu sucesso. Não vendemos produtos —
-      construímos estratégias. Não buscamos transações — buscamos relações de
-      décadas. É assim que o nauta pensa: com o horizonte sempre à frente.
-    </p>
+    <h2 class="crescer__title">Quando você <em>cresce,</em><br/>crescemos juntos.</h2>
+    <p class="crescer__body">Nossa remuneração está alinhada ao seu sucesso. Não vendemos produtos — construímos estratégias. Não buscamos transações — buscamos relações de décadas. É assim que o nauta pensa: com o horizonte sempre à frente.</p>
     <div class="crescer__actions">
       <a class="btn-primary-lg" href="#contato">Iniciar uma conversa →</a>
       <a class="btn-ghost" href="#servicos">Conhecer as soluções</a>
     </div>
   </div>
-  <div class="crescer__bg">NAUTA</div>
 </section>
 
 <!-- OFERTA DE VALOR -->
@@ -1139,9 +628,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   <div class="oferta__inner">
     <div class="oferta__head reveal">
       <span class="eyebrow">Oferta de valor</span>
-      <h2 class="oferta__title">
-        O que está <em>incluído</em> na sua assessoria.
-      </h2>
+      <h2 class="oferta__title">O que está <em>incluído</em> na sua assessoria.</h2>
     </div>
     <div class="oferta__grid">
       <div class="oferta__card reveal" data-delay="1">
@@ -1183,13 +670,8 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   <div class="contato__inner">
     <div class="contato__left reveal">
       <span class="eyebrow">Próximo passo</span>
-      <h2 class="contato__title">
-        Uma conversa,<br/>sem <em>compromisso.</em>
-      </h2>
-      <p class="contato__body">
-        Em até 24 horas um dos nossos assessores entra em contato para entender
-        o seu cenário atual e propor o desenho de uma primeira reunião.
-      </p>
+      <h2 class="contato__title">Uma conversa,<br/>sem <em>compromisso.</em></h2>
+      <p class="contato__body">Em até 24 horas um dos nossos assessores entra em contato para entender o seu cenário atual e propor o desenho de uma primeira reunião.</p>
       <div class="contato__meta">
         <div class="contato__meta-item">
           <span class="contato__meta-label">E-mail</span>
@@ -1241,13 +723,8 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
           <label for="msg">Mensagem (opcional)</label>
           <textarea id="msg" placeholder="Conte um pouco sobre seus objetivos..."></textarea>
         </div>
-        <button class="btn-primary-lg" type="submit" style="justify-content:center;">
-          Agendar conversa →
-        </button>
-        <p class="form-fine">
-          As informações são tratadas com total confidencialidade, conforme a LGPD.
-          Escritório credenciado à XP Investimentos, regulado pela CVM.
-        </p>
+        <button class="btn-primary-lg" type="submit" style="justify-content:center;">Agendar conversa →</button>
+        <p class="form-fine">As informações são tratadas com total confidencialidade, conforme a LGPD. Escritório credenciado à XP Investimentos, regulado pela CVM.</p>
       </form>
     </div>
   </div>
@@ -1257,9 +734,8 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="assets/logo-orange-white.png" alt="Nauta Investimentos"/>
-      <p>Assessoria de investimentos<br/>e soluções patrimoniais.<br/><br/>
-        Campos dos Goytacazes · Macaé, RJ</p>
+      <img src="assets/logo-orange-white.png" alt="Nauta Investimentos" style="height: 42px;"/>
+      <p>Assessoria de investimentos<br/>e soluções patrimoniais.<br/><br/>Campos dos Goytacazes · Macaé, RJ</p>
     </div>
     <div class="footer__col">
       <h6>Nauta</h6>
@@ -1287,12 +763,10 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   </div>
 </footer>
 
-<!-- DISCLAIMER REGULATÓRIO -->
+<!-- DISCLAIMER -->
 <section class="disclaimer">
   <div class="disclaimer__inner">
-    <p class="disclaimer__text">
-      <strong>A NAUTA ASSESSOR DE INVESTIMENTOS LTDA</strong>, inscrita sob o CNPJ 31.294.777/0001-30 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 ("Sociedade"), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. ("XP") e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais. A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone <strong>0800 722 3730</strong>.
-    </p>
+    <p class="disclaimer__text"><strong>A NAUTA ASSESSOR DE INVESTIMENTOS LTDA</strong>, inscrita sob o CNPJ 31.294.777/0001-30 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 ("Sociedade"), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. ("XP") e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais. A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone <strong>0800 722 3730</strong>.</p>
   </div>
 </section>
 
@@ -1308,47 +782,13 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   </div>
 </div>
 
-
 <script>
-// Mobile nav
-function openMobileNav() {
-  document.getElementById('mobileNav').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMobileNav() {
-  document.getElementById('mobileNav').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// Form submit
-function handleSubmit(e) {
-  e.preventDefault();
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').classList.add('show');
-}
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
+function handleSubmit(e) { e.preventDefault(); document.getElementById('contactForm').style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); }
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Nav dark on scroll
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  if (window.scrollY > 20) {
-    nav.style.boxShadow = '0 2px 12px rgba(38,38,38,.08)';
-  } else {
-    nav.style.boxShadow = 'none';
-  }
-});
+window.addEventListener('scroll', () => { const nav = document.getElementById('mainNav'); if (window.scrollY > 20) { nav.style.boxShadow = '0 2px 12px rgba(38,38,38,.08)'; } else { nav.style.boxShadow = 'none'; } });
 </script>
-
 </body>
 </html>
