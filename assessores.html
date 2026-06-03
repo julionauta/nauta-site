@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Nossos Assessores — Nauta Investimentos</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Conheça a equipe de assessores de investimentos credenciados à XP da Nauta Investimentos."/>
+<link rel="icon" type="image/png" href="assets/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --nauta-orange: #FF5100;
+  --nauta-orange-700: #D94400;
+  --nauta-orange-100: #FFE2D1;
+  --nauta-ink: #262626;
+  --nauta-bone: #EBEBDF;
+  --nauta-bone-soft: #F4F4EC;
+  --nauta-bone-deep: #D8D8C9;
+  --grey-200: #E4E4DB;
+  --grey-300: #CFCFC4;
+  --grey-400: #A8A89B;
+  --grey-500: #7A7A6F;
+  --grey-600: #545449;
+  --grey-700: #3A3A33;
+  --bg: var(--nauta-bone);
+  --fg-1: var(--nauta-ink);
+  --fg-2: var(--grey-600);
+  --fg-3: var(--grey-500);
+  --border-1: var(--grey-200);
+  --border-2: var(--grey-300);
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; font-size:16px; }
+body{ font-family:var(--font-sans); background:var(--bg); color:var(--fg-1); -webkit-font-smoothing:antialiased; }
+a{ text-decoration:none; color:inherit; }
+img{ display:block; max-width:100%; }
+button{ font-family:var(--font-sans); cursor:pointer; border:none; }
+
+/* NAV */
+.nav{ position:sticky; top:0; z-index:100; background:rgba(235,235,223,0.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--border-1); }
+.nav__inner{ max-width:1280px; margin:0 auto; padding:0 32px; height:68px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
+.nav__brand img{ height:60px; }
+.nav__links{ display:flex; gap:28px; align-items:center; flex:1; margin-left:32px; }
+.nav__links a{ font-size:14px; color:var(--fg-1); border-bottom:1px solid transparent; padding-bottom:2px; transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.nav__links a:hover, .nav__links a.active{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
+.nav__cta-group{ display:flex; gap:12px; align-items:center; }
+.nav__cta-ghost{ display:inline-flex; align-items:center; gap:6px; color:var(--fg-1); font-size:14px; font-weight:500; padding:9px 16px; border:1px solid var(--border-2); border-radius:8px; transition:border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+.nav__cta-ghost:hover{ border-color:var(--nauta-orange); color:var(--nauta-orange); }
+.nav__cta-primary{ display:inline-flex; align-items:center; gap:6px; background:var(--nauta-orange); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); }
+.nav__cta-primary:hover{ background:var(--nauta-orange-700); }
+.nav__hamburger{ display:none; flex-direction:column; gap:5px; padding:4px; }
+.nav__hamburger span{ width:22px; height:2px; background:var(--fg-1); border-radius:2px; }
+
+/* HERO */
+.inner-hero{ background:var(--nauta-ink); padding:80px 32px 64px; }
+.inner-hero__inner{ max-width:1280px; margin:0 auto; }
+.inner-hero__back{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--grey-400); margin-bottom:32px; transition:color var(--dur-fast) var(--ease-out); }
+.inner-hero__back:hover{ color:var(--nauta-orange); }
+.inner-hero__eyebrow{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--grey-400); font-weight:500; margin-bottom:16px; }
+.inner-hero__title{ font-size:clamp(36px,5vw,64px); font-weight:500; letter-spacing:-0.035em; line-height:1; color:var(--nauta-bone); margin-bottom:20px; }
+.inner-hero__title em{ font-style:normal; color:var(--nauta-orange); }
+.inner-hero__sub{ font-size:16px; color:rgba(235,235,223,0.65); max-width:640px; line-height:1.6; }
+.inner-hero__stats{ display:flex; gap:48px; margin-top:40px; padding-top:32px; border-top:1px solid rgba(235,235,223,0.15); }
+.inner-hero__stat{ display:flex; flex-direction:column; gap:4px; }
+.inner-hero__stat-val{ font-size:32px; font-weight:500; color:var(--nauta-orange); letter-spacing:-0.03em; line-height:1; }
+.inner-hero__stat-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey-400); }
+
+/* TOOLBAR */
+.toolbar{ background:var(--nauta-bone-soft); border-bottom:1px solid var(--border-1); padding:24px 32px; position:sticky; top:68px; z-index:50; }
+.toolbar__inner{ max-width:1280px; margin:0 auto; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar__search{ position:relative; flex:1; min-width:240px; max-width:380px; }
+.toolbar__search input{ width:100%; font-family:var(--font-sans); font-size:14px; padding:11px 14px 11px 40px; border:1px solid var(--border-2); border-radius:8px; background:var(--bg); color:var(--fg-1); transition:border-color var(--dur-fast) var(--ease-out); outline:none; }
+.toolbar__search input:focus{ border-color:var(--nauta-orange); }
+.toolbar__search svg{ position:absolute; left:13px; top:50%; transform:translateY(-50%); color:var(--fg-3); pointer-events:none; }
+.toolbar__filters{ display:flex; gap:8px; flex-wrap:wrap; }
+.filter-pill{ font-size:13px; padding:9px 18px; border-radius:999px; border:1px solid var(--border-2); background:transparent; color:var(--fg-2); font-weight:500; transition:all var(--dur-fast) var(--ease-out); white-space:nowrap; }
+.filter-pill:hover{ border-color:var(--nauta-orange); color:var(--nauta-orange); }
+.filter-pill.active{ background:var(--nauta-ink); color:var(--nauta-bone); border-color:var(--nauta-ink); }
+.filter-pill .count{ font-size:11px; opacity:0.6; margin-left:6px; }
+
+/* GRID */
+.assessores-section{ padding:48px 32px 96px; }
+.assessores-inner{ max-width:1280px; margin:0 auto; }
+.assessores-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.assessor-card{ padding:28px; border:1px solid var(--border-1); border-radius:12px; background:var(--nauta-bone-soft); transition:all var(--dur-base) var(--ease-out); display:flex; flex-direction:column; gap:14px; }
+.assessor-card:hover{ border-color:var(--nauta-orange); transform:translateY(-2px); box-shadow:0 8px 24px rgba(38,38,38,.06); }
+.assessor-card__header{ display:flex; align-items:start; justify-content:space-between; gap:12px; }
+.assessor-card__avatar{ width:56px; height:56px; border-radius:50%; background:var(--nauta-orange-100); color:var(--nauta-orange); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:500; letter-spacing:-0.01em; flex-shrink:0; }
+.assessor-card__code{ font-family:ui-monospace,monospace; font-size:11px; color:var(--fg-3); letter-spacing:.04em; }
+.assessor-card__name{ font-size:17px; font-weight:500; letter-spacing:-0.015em; line-height:1.25; }
+.assessor-card__meta{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:auto; padding-top:14px; border-top:1px solid var(--border-1); }
+.assessor-card__role{ font-size:13px; color:var(--fg-2); font-weight:500; }
+.assessor-card__unit{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:999px; background:var(--bg); color:var(--fg-3); font-weight:500; }
+.assessor-card.featured .assessor-card__unit{ background:var(--nauta-orange-100); color:var(--nauta-orange); }
+
+.assessor-card.featured{ background:var(--nauta-ink); color:var(--nauta-bone); border-color:var(--nauta-ink); }
+.assessor-card.featured:hover{ border-color:var(--nauta-orange); }
+.assessor-card.featured .assessor-card__avatar{ background:rgba(255,81,0,0.15); color:var(--nauta-orange); }
+.assessor-card.featured .assessor-card__code{ color:var(--grey-500); }
+.assessor-card.featured .assessor-card__name{ color:var(--nauta-bone); }
+.assessor-card.featured .assessor-card__role{ color:var(--grey-400); }
+.assessor-card.featured .assessor-card__meta{ border-color:var(--grey-700); }
+
+.empty-state{ grid-column:1/-1; text-align:center; padding:80px 20px; color:var(--fg-3); }
+.empty-state h3{ font-size:20px; font-weight:500; margin-bottom:8px; color:var(--fg-1); }
+
+/* FOOTER */
+.footer{ background:var(--nauta-ink); padding:64px 32px 32px; }
+.footer__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+.footer__brand img{ height:42px; margin-bottom:16px; }
+.footer__brand p{ font-size:13px; line-height:1.6; color:var(--grey-500); }
+.footer__brand p strong{ color:var(--nauta-bone-deep); font-weight:500; }
+.footer__col h6{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--nauta-bone); margin-bottom:16px; }
+.footer__col a{ display:block; font-size:14px; color:var(--grey-500); margin-bottom:10px; transition:color var(--dur-fast) var(--ease-out); }
+.footer__col a:hover{ color:var(--nauta-orange); }
+.footer__legal{ max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid var(--grey-700); flex-wrap:wrap; gap:12px; }
+.footer__legal span{ font-size:13px; color:var(--grey-600); }
+
+/* DISCLAIMER */
+.disclaimer{ background:#1A1A1A; border-top:1px solid rgba(255,255,255,0.06); padding:32px; }
+.disclaimer__inner{ max-width:1280px; margin:0 auto; }
+.disclaimer__text{ font-size:11px; line-height:1.75; color:var(--grey-600); text-align:justify; }
+.disclaimer__text strong{ color:var(--grey-500); font-weight:500; }
+
+/* PRIVACY BAR */
+.privacy-bar{ background:#111; padding:14px 32px; border-top:1px solid rgba(255,255,255,0.05); }
+.privacy-bar__inner{ max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.privacy-bar__label{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:500; color:var(--grey-600); }
+.privacy-bar__links{ display:flex; gap:24px; flex-wrap:wrap; }
+.privacy-bar__links a{ font-size:12px; color:var(--grey-500); border-bottom:1px solid transparent; padding-bottom:1px; transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.privacy-bar__links a:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
+
+/* MOBILE NAV */
+.nav__mobile{ display:none; position:fixed; inset:0; background:var(--nauta-ink); z-index:200; flex-direction:column; padding:32px; }
+.nav__mobile.open{ display:flex; }
+.nav__mobile-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:48px; }
+.nav__mobile-header img{ height:26px; }
+.nav__mobile-close{ font-size:28px; color:var(--nauta-bone); background:none; cursor:pointer; line-height:1; }
+.nav__mobile-links{ display:flex; flex-direction:column; gap:8px; }
+.nav__mobile-links a{ font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--nauta-bone); padding:8px 0; border-bottom:1px solid var(--grey-700); }
+.nav__mobile-cta{ margin-top:32px; display:flex; flex-direction:column; gap:12px; }
+.btn-primary-lg{ display:inline-flex; align-items:center; gap:10px; background:var(--nauta-orange); color:#fff; font-size:16px; font-weight:500; padding:16px 28px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); justify-content:center; }
+.btn-ghost{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--grey-700); color:var(--nauta-bone); font-size:16px; font-weight:500; padding:16px 28px; border-radius:8px; justify-content:center; }
+
+@media(max-width:900px){
+  .nav__links,.nav__cta-group{ display:none; }
+  .nav__hamburger{ display:flex; }
+  .assessores-grid{ grid-template-columns:repeat(2,1fr); }
+  .inner-hero__stats{ gap:24px; flex-wrap:wrap; }
+  .footer__inner{ grid-template-columns:1fr 1fr; gap:32px; }
+  .footer__legal{ flex-direction:column; align-items:flex-start; }
+}
+@media(max-width:600px){
+  .assessores-grid{ grid-template-columns:1fr; }
+  .toolbar{ padding:16px 20px; }
+  .inner-hero,.assessores-section,.footer{ padding-left:20px; padding-right:20px; }
+  .footer__inner{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<nav class="nav__mobile" id="mobileNav">
+  <div class="nav__mobile-header">
+    <img src="assets/logo-fullwhite.png" alt="Nauta Investimentos"/>
+    <button class="nav__mobile-close" onclick="closeMobileNav()">✕</button>
+  </div>
+  <div class="nav__mobile-links">
+    <a href="index.html#nauta">Quem somos</a>
+    <a href="index.html#servicos">Soluções</a>
+    <a href="index.html#modelo">Nosso modelo</a>
+    <a href="index.html#plataforma">XP Investimentos</a>
+    <a href="assessores.html">Assessores</a>
+    <a href="index.html#contato">Contato</a>
+  </div>
+  <div class="nav__mobile-cta">
+    <a class="btn-ghost" href="index.html#contato" style="border-color:var(--grey-700);">Agendar conversa →</a>
+    <a class="btn-primary-lg" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta →</a>
+  </div>
+</nav>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/logo-fullblack.png" alt="Nauta Investimentos"/>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html#nauta">Quem somos</a>
+      <a href="index.html#servicos">Soluções</a>
+      <a href="index.html#modelo">Nosso modelo</a>
+      <a href="index.html#plataforma">XP Investimentos</a>
+      <a href="assessores.html" class="active">Assessores</a>
+    </nav>
+    <div class="nav__cta-group">
+      <a class="nav__cta-ghost" href="index.html#contato">Agendar conversa</a>
+      <a class="nav__cta-primary" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta →</a>
+    </div>
+    <button class="nav__hamburger" onclick="openMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="inner-hero">
+  <div class="inner-hero__inner">
+    <a class="inner-hero__back" href="index.html">← Voltar ao site</a>
+    <div class="inner-hero__eyebrow">Nossa equipe</div>
+    <h1 class="inner-hero__title">Conheça os <em>assessores</em><br/>da Nauta.</h1>
+    <p class="inner-hero__sub">Profissionais credenciados à XP Investimentos, distribuídos em escritórios no Rio de Janeiro e Espírito Santo. Cada cliente é atendido por um assessor dedicado, que constrói uma estratégia personalizada para sua jornada patrimonial.</p>
+    <div class="inner-hero__stats">
+      <div class="inner-hero__stat">
+        <div class="inner-hero__stat-val" id="statTotal">28</div>
+        <div class="inner-hero__stat-label">Assessores</div>
+      </div>
+      <div class="inner-hero__stat">
+        <div class="inner-hero__stat-val">4</div>
+        <div class="inner-hero__stat-label">Unidades</div>
+      </div>
+      <div class="inner-hero__stat">
+        <div class="inner-hero__stat-val">13</div>
+        <div class="inner-hero__stat-label">Anos de história</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar__inner">
+    <div class="toolbar__search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar por nome..." oninput="filterAssessores()"/>
+    </div>
+    <div class="toolbar__filters" id="filterPills">
+      <button class="filter-pill active" data-unit="all" onclick="setFilter(this)">Todas <span class="count">28</span></button>
+      <button class="filter-pill" data-unit="Macaé" onclick="setFilter(this)">Macaé <span class="count">10</span></button>
+      <button class="filter-pill" data-unit="Campos" onclick="setFilter(this)">Campos <span class="count">12</span></button>
+      <button class="filter-pill" data-unit="Rio" onclick="setFilter(this)">Rio de Janeiro <span class="count">5</span></button>
+      <button class="filter-pill" data-unit="Vila Velha" onclick="setFilter(this)">Vila Velha <span class="count">1</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- GRID DE ASSESSORES -->
+<section class="assessores-section">
+  <div class="assessores-inner">
+    <div class="assessores-grid" id="assessoresGrid">
+      <!-- CARDS GERADOS POR JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo-orange-white.png" alt="Nauta Investimentos"/>
+      <p><strong>Matriz — Macaé/RJ</strong><br/>Rua Jorge Reid, 22, Cavaleiros<br/>CEP 27.920-260<br/><br/>
+      <strong>Filial — Campos dos Goytacazes/RJ</strong><br/>Rua Voluntário da Pátria, 500, sala 607<br/>Ed. Platinum, Centro · CEP 28.030-260<br/><br/>
+      CNPJ 31.294.777/0001-30</p>
+    </div>
+    <div class="footer__col">
+      <h6>Nauta</h6>
+      <a href="index.html#nauta">Quem somos</a>
+      <a href="index.html#modelo">Nosso modelo</a>
+      <a href="assessores.html">Assessores</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+    <div class="footer__col">
+      <h6>Soluções</h6>
+      <a href="index.html#servicos">Assessoria</a>
+      <a href="index.html#servicos">Estruturação patrimonial</a>
+      <a href="index.html#servicos">Mercado global</a>
+      <a href="index.html#servicos">Previdência</a>
+    </div>
+    <div class="footer__col">
+      <h6>Cliente</h6>
+      <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta</a>
+      <a href="mailto:contato@nautainvestimentos.com.br">contato@nautainvestimentos.com.br</a>
+      <a href="index.html#contato">Agendar conversa</a>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <span>© 2026 Nauta Investimentos. CNPJ 31.294.777/0001-30.</span>
+    <span>Escritório credenciado XP Investimentos · Registrado CVM – Resolução 178/23.</span>
+  </div>
+</footer>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer">
+  <div class="disclaimer__inner">
+    <p class="disclaimer__text"><strong>A NAUTA ASSESSOR DE INVESTIMENTOS LTDA</strong>, inscrita sob o CNPJ 31.294.777/0001-30 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 ("Sociedade"), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. ("XP") e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais. A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone <strong>0800 722 3730</strong>.</p>
+  </div>
+</section>
+
+<!-- PRIVACY BAR -->
+<div class="privacy-bar">
+  <div class="privacy-bar__inner">
+    <span class="privacy-bar__label">Privacidade</span>
+    <div class="privacy-bar__links">
+      <a href="politica-privacidade.html" target="_blank">Política de Privacidade</a>
+      <a href="politica-cookies.html" target="_blank">Política de Cookies</a>
+      <a href="portal-transparencia.html" target="_blank">Portal da Transparência</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const assessores = [
+  { cod: 'A99024', nome: 'Alberto Abrantes Gomes de Amorim', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A32708', nome: 'Amanda Buzatto', cargo: 'Assessor de Investimentos', unidade: 'Macaé' },
+  { cod: 'A68158', nome: 'Angelo Márcio de Araújo Chagas', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A67029', nome: 'Antônio Carlos Chebabe Neto', cargo: 'Gestor', unidade: 'Campos', featured: true },
+  { cod: 'A2847',  nome: 'Aryatna Mariana Butti Freitas', cargo: 'Assessor de Investimentos', unidade: 'Macaé' },
+  { cod: 'A21946', nome: 'Felipe de Sousa Gonçalves', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A21103', nome: 'Fernando Albuquerque Silveira', cargo: 'Team Leader', unidade: 'Macaé', featured: true },
+  { cod: 'A22285', nome: 'Filipe Barbosa Volotão de Souza', cargo: 'Especialista Renda Variável', unidade: 'Campos', featured: true },
+  { cod: 'A75012', nome: 'Iandra Pires Dias', cargo: 'Assessor de Investimentos', unidade: 'Macaé' },
+  { cod: 'A26087', nome: 'Igor Cesar Franco', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A73213', nome: 'Josilaine Oliveira de Souza', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A39129', nome: 'Julio Cesar Grimalt dos Santos', cargo: 'Assessor de Investimentos', unidade: 'Rio de Janeiro' },
+  { cod: 'A20761', nome: 'Julio do Nascimento Vieira', cargo: 'Assessor de Investimentos', unidade: 'Macaé' },
+  { cod: 'A20310', nome: 'Luciano do Nascimento Moreira', cargo: 'Assessor de Investimentos', unidade: 'Macaé' },
+  { cod: 'A99363', nome: 'Marcelo Cauã de Araújo Macedo', cargo: 'Assessor de Investimentos', unidade: 'Rio de Janeiro' },
+  { cod: 'A69457', nome: 'Marcelo Garcia Rollin Pinheiro', cargo: 'Gestor', unidade: 'Macaé', featured: true },
+  { cod: 'A27936', nome: 'Marco Antonio Virgini', cargo: 'Assessor de Investimentos', unidade: 'Rio de Janeiro' },
+  { cod: 'A75013', nome: 'Matheus Ferreira Rangel da Rocha', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A24609', nome: 'Mauricio Cordeiro Costa', cargo: 'Assessor de Investimentos', unidade: 'Macaé' },
+  { cod: 'A33388', nome: 'Pablo Victor Félix da Cruz', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A68962', nome: 'Paulo Henrique Moreira da Silva', cargo: 'Assessor de Investimentos', unidade: 'Vila Velha' },
+  { cod: 'A68967', nome: 'Rachel Ferreira Chacur Chebabe', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A28528', nome: 'Reinaldo dos Santos Pereira', cargo: 'Assessor de Investimentos', unidade: 'Rio de Janeiro' },
+  { cod: 'A94253', nome: 'Roberto Carlos Lelles', cargo: 'Assessor de Investimentos', unidade: 'Rio de Janeiro' },
+  { cod: 'A22067', nome: 'Suely Almeida de Assumpção Silva', cargo: 'PCO', unidade: 'Macaé', featured: true },
+  { cod: 'A43336', nome: 'Thiago dos Santos Vaz', cargo: 'Assessor de Investimentos', unidade: 'Campos' },
+  { cod: 'A20243', nome: 'Thiago Mancini Marconsin', cargo: 'Especialista Renda Variável', unidade: 'Macaé', featured: true },
+  { cod: 'A23345', nome: 'Victor Merchid Thome', cargo: 'Assessor de Investimentos', unidade: 'Campos' }
+];
+
+// Ordenar: featured primeiro, depois alfabético
+assessores.sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return a.nome.localeCompare(b.nome, 'pt-BR');
+});
+
+let currentFilter = 'all';
+let currentSearch = '';
+
+function getInitials(nome) {
+  const partes = nome.split(' ').filter(p => p.length > 2);
+  if (partes.length === 1) return partes[0].substring(0, 2).toUpperCase();
+  return (partes[0][0] + partes[partes.length - 1][0]).toUpperCase();
+}
+
+function unitMatch(assessor, filter) {
+  if (filter === 'all') return true;
+  if (filter === 'Rio') return assessor.unidade === 'Rio de Janeiro';
+  return assessor.unidade === filter;
+}
+
+function renderAssessores() {
+  const grid = document.getElementById('assessoresGrid');
+  const filtrados = assessores.filter(a => {
+    const matchUnit = unitMatch(a, currentFilter);
+    const matchSearch = currentSearch === '' || a.nome.toLowerCase().includes(currentSearch.toLowerCase());
+    return matchUnit && matchSearch;
+  });
+  
+  if (filtrados.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><h3>Nenhum assessor encontrado</h3><p>Tente ajustar a busca ou o filtro.</p></div>`;
+    return;
+  }
+  
+  grid.innerHTML = filtrados.map(a => `
+    <div class="assessor-card ${a.featured ? 'featured' : ''}">
+      <div class="assessor-card__header">
+        <div class="assessor-card__avatar">${getInitials(a.nome)}</div>
+        <span class="assessor-card__code">${a.cod}</span>
+      </div>
+      <div class="assessor-card__name">${a.nome}</div>
+      <div class="assessor-card__meta">
+        <span class="assessor-card__role">${a.cargo}</span>
+        <span class="assessor-card__unit">${a.unidade}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setFilter(btn) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.unit;
+  renderAssessores();
+}
+
+function filterAssessores() {
+  currentSearch = document.getElementById('searchInput').value;
+  renderAssessores();
+}
+
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
+
+renderAssessores();
+</script>
+</body>
+</html>
