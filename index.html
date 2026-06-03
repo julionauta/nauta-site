@@ -58,8 +58,11 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .nav__links{ display:flex; gap:28px; align-items:center; flex:1; margin-left:32px; }
 .nav__links a{ font-size:14px; color:var(--fg-1); border-bottom:1px solid transparent; padding-bottom:2px; transition:color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
 .nav__links a:hover{ color:var(--nauta-orange); border-color:var(--nauta-orange); }
-.nav__cta{ display:inline-flex; align-items:center; gap:8px; background:var(--nauta-orange); color:#fff; font-size:14px; font-weight:500; padding:10px 20px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); }
-.nav__cta:hover{ background:var(--nauta-orange-700); }
+.nav__cta-group{ display:flex; gap:12px; align-items:center; }
+.nav__cta-ghost{ display:inline-flex; align-items:center; gap:6px; color:var(--fg-1); font-size:14px; font-weight:500; padding:9px 16px; border:1px solid var(--border-2); border-radius:8px; transition:border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+.nav__cta-ghost:hover{ border-color:var(--nauta-orange); color:var(--nauta-orange); }
+.nav__cta-primary{ display:inline-flex; align-items:center; gap:6px; background:var(--nauta-orange); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:8px; transition:background var(--dur-fast) var(--ease-out); }
+.nav__cta-primary:hover{ background:var(--nauta-orange-700); }
 .nav__hamburger{ display:none; flex-direction:column; gap:5px; padding:4px; }
 .nav__hamburger span{ width:22px; height:2px; background:var(--fg-1); border-radius:2px; transition:all var(--dur-base) var(--ease-out); }
 
@@ -95,7 +98,6 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .nauta-word__value-num{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--nauta-orange); font-weight:500; margin-bottom:10px; }
 .nauta-word__value-title{ font-size:20px; font-weight:500; color:var(--nauta-bone); margin-bottom:8px; }
 .nauta-word__value-body{ font-size:14px; line-height:1.6; color:var(--grey-400); }
-.nauta-word__bg-text{ position:absolute; bottom:-40px; right:-20px; font-size:clamp(120px,18vw,260px); font-weight:500; letter-spacing:-0.05em; color:rgba(255,255,255,0.025); pointer-events:none; user-select:none; white-space:nowrap; line-height:1; }
 
 /* SERVICOS */
 .servicos{ padding:96px 32px; border-top:1px solid var(--border-1); }
@@ -161,8 +163,6 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .plataforma__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; color:var(--nauta-bone); margin-bottom:24px; }
 .plataforma__title em{ font-style:normal; color:var(--nauta-orange); }
 .plataforma__body{ font-size:16px; line-height:1.7; color:var(--grey-400); margin-bottom:32px; }
-.plataforma__xp-badge{ display:inline-flex; align-items:center; gap:12px; padding:14px 20px; border:1px solid var(--grey-700); border-radius:8px; color:var(--nauta-bone); font-size:14px; font-weight:500; }
-.plataforma__xp-logo{ background:#fff; color:#000; font-size:16px; font-weight:700; padding:4px 8px; border-radius:4px; letter-spacing:-.02em; }
 .plataforma__right{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .plataforma__item{ padding:24px; border:1px solid var(--grey-700); border-radius:8px; transition:border-color var(--dur-base) var(--ease-out); }
 .plataforma__item:hover{ border-color:var(--nauta-orange); }
@@ -195,7 +195,6 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .btn-primary-lg:hover{ background:var(--nauta-orange-700); }
 .btn-ghost{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--grey-700); color:var(--nauta-bone); font-size:16px; font-weight:500; padding:16px 28px; border-radius:8px; transition:border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
 .btn-ghost:hover{ border-color:var(--nauta-bone); }
-.crescer__bg{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:clamp(200px,30vw,400px); font-weight:500; letter-spacing:-0.05em; color:rgba(255,255,255,0.025); pointer-events:none; user-select:none; white-space:nowrap; line-height:1; z-index:1; }
 
 /* CONTATO */
 .contato{ padding:96px 32px; border-top:1px solid var(--border-1); }
@@ -203,11 +202,12 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .contato__title{ font-size:clamp(36px,4.5vw,52px); font-weight:500; letter-spacing:-0.03em; line-height:1.05; margin-top:14px; margin-bottom:24px; }
 .contato__title em{ font-style:normal; color:var(--nauta-orange); }
 .contato__body{ font-size:16px; line-height:1.7; color:var(--fg-2); margin-bottom:32px; }
-.contato__meta{ display:flex; flex-direction:column; gap:16px; }
-.contato__meta-item{ display:flex; flex-direction:column; gap:2px; }
+.contato__meta{ display:flex; flex-direction:column; gap:20px; }
+.contato__meta-item{ display:flex; flex-direction:column; gap:4px; }
 .contato__meta-label{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--fg-3); }
-.contato__meta-val{ font-size:15px; color:var(--fg-1); }
+.contato__meta-val{ font-size:15px; color:var(--fg-1); line-height:1.5; }
 .contato__meta-val a:hover{ color:var(--nauta-orange); }
+.contato__meta-val strong{ font-weight:500; }
 .contato__form{ display:flex; flex-direction:column; gap:16px; }
 .field{ display:flex; flex-direction:column; gap:6px; }
 .field label{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:500; color:var(--fg-3); }
@@ -229,7 +229,8 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .footer{ background:var(--nauta-ink); padding:64px 32px 32px; }
 .footer__inner{ max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
 .footer__brand img{ height:26px; margin-bottom:16px; }
-.footer__brand p{ font-size:14px; line-height:1.6; color:var(--grey-500); }
+.footer__brand p{ font-size:13px; line-height:1.6; color:var(--grey-500); }
+.footer__brand p strong{ color:var(--nauta-bone-deep); font-weight:500; }
 .footer__col h6{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--nauta-bone); margin-bottom:16px; }
 .footer__col a{ display:block; font-size:14px; color:var(--grey-500); margin-bottom:10px; transition:color var(--dur-fast) var(--ease-out); }
 .footer__col a:hover{ color:var(--nauta-orange); }
@@ -259,11 +260,11 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
 .nav__mobile-links{ display:flex; flex-direction:column; gap:8px; }
 .nav__mobile-links a{ font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--nauta-bone); padding:8px 0; border-bottom:1px solid var(--grey-700); transition:color var(--dur-fast) var(--ease-out); }
 .nav__mobile-links a:hover{ color:var(--nauta-orange); }
-.nav__mobile-cta{ margin-top:32px; }
+.nav__mobile-cta{ margin-top:32px; display:flex; flex-direction:column; gap:12px; }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .nav__links,.nav__cta{ display:none; }
+  .nav__links,.nav__cta-group{ display:none; }
   .nav__hamburger{ display:flex; }
   .hero__lower{ grid-template-columns:1fr; gap:32px; }
   .hero__actions{ justify-self:start; }
@@ -327,10 +328,12 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
     <a href="#servicos" onclick="closeMobileNav()">Soluções</a>
     <a href="#modelo" onclick="closeMobileNav()">Nosso modelo</a>
     <a href="#plataforma" onclick="closeMobileNav()">XP Investimentos</a>
+    <a href="assessores.html">Assessores</a>
     <a href="#contato" onclick="closeMobileNav()">Contato</a>
   </div>
   <div class="nav__mobile-cta">
-    <a class="btn-primary-lg" href="#contato" onclick="closeMobileNav()">Agendar conversa →</a>
+    <a class="btn-ghost" href="#contato" onclick="closeMobileNav()" style="justify-content:center; border-color:var(--grey-700);">Agendar conversa →</a>
+    <a class="btn-primary-lg" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener" style="justify-content:center;">Abra sua conta →</a>
   </div>
 </nav>
 
@@ -345,9 +348,11 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
       <a href="#servicos">Soluções</a>
       <a href="#modelo">Nosso modelo</a>
       <a href="#plataforma">XP Investimentos</a>
+      <a href="assessores.html">Assessores</a>
     </nav>
-    <div class="nav__cta">
-      <a class="nav__cta" href="#contato">Agendar conversa →</a>
+    <div class="nav__cta-group">
+      <a class="nav__cta-ghost" href="#contato">Agendar conversa</a>
+      <a class="nav__cta-primary" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta →</a>
     </div>
     <button class="nav__hamburger" onclick="openMobileNav()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -365,6 +370,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
       <span class="hero__rule-sep">—</span>
       <span>Assessoria de investimentos</span>
       <span class="hero__rule-sep">·</span>
+      <span>Campos & Macaé, RJ</span>
     </div>
     <h1 class="hero__headline animate-in" data-delay="1">
       Cuidamos<br/>de <em>histórias.</em>
@@ -374,7 +380,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
         Sua história começa muito antes dos investimentos. Por isso tratamos seu patrimônio com o cuidado que ele merece.
       </p>
       <div class="hero__actions animate-in" data-delay="3">
-        <a class="btn-primary" href="#contato">Agendar conversa →</a>
+        <a class="btn-primary" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta →</a>
         <a class="link-quiet" href="#nauta">Conheça a Nauta →</a>
       </div>
     </div>
@@ -612,7 +618,7 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
     <h2 class="crescer__title">Quando você <em>cresce,</em><br/>crescemos juntos.</h2>
     <p class="crescer__body">Nossa remuneração está alinhada ao seu sucesso. Não vendemos produtos — construímos estratégias. Não buscamos transações — buscamos relações de décadas. É assim que o nauta pensa: com o horizonte sempre à frente.</p>
     <div class="crescer__actions">
-      <a class="btn-primary-lg" href="#contato">Iniciar uma conversa →</a>
+      <a class="btn-primary-lg" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta →</a>
       <a class="btn-ghost" href="#servicos">Conhecer as soluções</a>
     </div>
   </div>
@@ -673,12 +679,12 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
           <span class="contato__meta-val"><a href="mailto:contato@nautainvestimentos.com.br">contato@nautainvestimentos.com.br</a></span>
         </div>
         <div class="contato__meta-item">
-          <span class="contato__meta-label">Escritórios</span>
-          <span class="contato__meta-val">Campos dos Goytacazes, RJ · Macaé, RJ</span>
+          <span class="contato__meta-label">Matriz — Macaé</span>
+          <span class="contato__meta-val">Rua Jorge Reid, 22, Cavaleiros<br/>Macaé/RJ · CEP 27.920-260</span>
         </div>
         <div class="contato__meta-item">
-          <span class="contato__meta-label">Site institucional</span>
-          <span class="contato__meta-val"><a href="https://www.nautainvestimentos.com.br" target="_blank">nautainvestimentos.com.br</a></span>
+          <span class="contato__meta-label">Filial — Campos dos Goytacazes</span>
+          <span class="contato__meta-val">Rua Voluntário da Pátria, 500, sala 607<br/>Edifício Platinum, Centro<br/>Campos dos Goytacazes/RJ · CEP 28.030-260</span>
         </div>
       </div>
     </div>
@@ -730,12 +736,15 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
   <div class="footer__inner">
     <div class="footer__brand">
       <img src="assets/logo-orange-white.png" alt="Nauta Investimentos" style="height: 42px;"/>
-      <p>Assessoria de investimentos<br/>e soluções patrimoniais.<br/><br/>Campos dos Goytacazes · Macaé, RJ</p>
+      <p><strong>Matriz — Macaé/RJ</strong><br/>Rua Jorge Reid, 22, Cavaleiros<br/>CEP 27.920-260<br/><br/>
+      <strong>Filial — Campos dos Goytacazes/RJ</strong><br/>Rua Voluntário da Pátria, 500, sala 607<br/>Ed. Platinum, Centro · CEP 28.030-260<br/><br/>
+      CNPJ 31.294.777/0001-30</p>
     </div>
     <div class="footer__col">
       <h6>Nauta</h6>
       <a href="#nauta">Quem somos</a>
       <a href="#modelo">Nosso modelo</a>
+      <a href="assessores.html">Assessores</a>
       <a href="#contato">Contato</a>
     </div>
     <div class="footer__col">
@@ -746,9 +755,9 @@ button{ font-family:var(--font-sans); cursor:pointer; border:none; }
       <a href="#servicos">Previdência</a>
     </div>
     <div class="footer__col">
-      <h6>Contato</h6>
+      <h6>Cliente</h6>
+      <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A21103" target="_blank" rel="noopener">Abra sua conta</a>
       <a href="mailto:contato@nautainvestimentos.com.br">contato@nautainvestimentos.com.br</a>
-      <a href="https://www.nautainvestimentos.com.br" target="_blank">nautainvestimentos.com.br</a>
       <a href="#contato">Agendar conversa</a>
     </div>
   </div>
